@@ -61,15 +61,16 @@
           }, e);
       }
     };
-  let i = !1;
+  let s = !1;
   setTimeout(() => {
-    if (i) {
+    if (s) {
       let e = new Event("windowScroll");
       window.addEventListener("scroll", function (t) {
         document.dispatchEvent(e);
       });
     }
   }, 0),
+    document.addEventListener("click", function (e) {}),
     (window.FLS = !0),
     (function (e) {
       let t = new Image();
@@ -94,5 +95,37 @@
             })(),
             document.documentElement.classList.toggle("menu-open"));
         });
+    })(),
+    (function () {
+      s = !0;
+      const e = document.querySelector("header.header"),
+        t = e.hasAttribute("data-scroll-show"),
+        n = e.dataset.scrollShow ? e.dataset.scrollShow : 500,
+        o = e.dataset.scroll ? e.dataset.scroll : 1;
+      let c,
+        i = 0;
+      document.addEventListener("windowScroll", function (s) {
+        const a = window.scrollY;
+        clearTimeout(c),
+          a >= o
+            ? (!e.classList.contains("_header-scroll") &&
+                e.classList.add("_header-scroll"),
+              t &&
+                (a > i
+                  ? e.classList.contains("_header-show") &&
+                    e.classList.remove("_header-show")
+                  : !e.classList.contains("_header-show") &&
+                    e.classList.add("_header-show"),
+                (c = setTimeout(() => {
+                  !e.classList.contains("_header-show") &&
+                    e.classList.add("_header-show");
+                }, n))))
+            : (e.classList.contains("_header-scroll") &&
+                e.classList.remove("_header-scroll"),
+              t &&
+                e.classList.contains("_header-show") &&
+                e.classList.remove("_header-show")),
+          (i = a <= 0 ? 0 : a);
+      });
     })();
 })();
