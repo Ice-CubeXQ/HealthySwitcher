@@ -76,7 +76,7 @@
         : n(t[s]) && n(e[s]) && Object.keys(t[s]).length > 0 && r(e[s], t[s]);
     });
   }
-  const o = {
+  const a = {
     body: {},
     addEventListener() {},
     removeEventListener() {},
@@ -105,12 +105,12 @@
       search: "",
     },
   };
-  function a() {
+  function o() {
     const e = "undefined" != typeof document ? document : {};
-    return r(e, o), e;
+    return r(e, a), e;
   }
   const l = {
-    document: o,
+    document: a,
     navigator: { userAgent: "" },
     location: {
       hash: "",
@@ -175,7 +175,7 @@
   }
   function h(e, t) {
     const s = d(),
-      i = a();
+      i = o();
     let n = [];
     if (!t && e instanceof c) return e;
     if (!e) return new c(n);
@@ -318,31 +318,31 @@
             h(e[t]).is(s) && i.apply(e[t], n);
         }
       }
-      function o(e) {
+      function a(e) {
         const t = (e && e.target && e.target.dom7EventData) || [];
         t.indexOf(e) < 0 && t.unshift(e), i.apply(this, t);
       }
       "function" == typeof e[1] && (([t, i, n] = e), (s = void 0)),
         n || (n = !1);
-      const a = t.split(" ");
+      const o = t.split(" ");
       let l;
       for (let e = 0; e < this.length; e += 1) {
         const t = this[e];
         if (s)
-          for (l = 0; l < a.length; l += 1) {
-            const e = a[l];
+          for (l = 0; l < o.length; l += 1) {
+            const e = o[l];
             t.dom7LiveListeners || (t.dom7LiveListeners = {}),
               t.dom7LiveListeners[e] || (t.dom7LiveListeners[e] = []),
               t.dom7LiveListeners[e].push({ listener: i, proxyListener: r }),
               t.addEventListener(e, r, n);
           }
         else
-          for (l = 0; l < a.length; l += 1) {
-            const e = a[l];
+          for (l = 0; l < o.length; l += 1) {
+            const e = o[l];
             t.dom7Listeners || (t.dom7Listeners = {}),
               t.dom7Listeners[e] || (t.dom7Listeners[e] = []),
-              t.dom7Listeners[e].push({ listener: i, proxyListener: o }),
-              t.addEventListener(e, o, n);
+              t.dom7Listeners[e].push({ listener: i, proxyListener: a }),
+              t.addEventListener(e, a, n);
           }
       }
       return this;
@@ -356,24 +356,24 @@
         const t = r[e];
         for (let e = 0; e < this.length; e += 1) {
           const r = this[e];
-          let o;
+          let a;
           if (
             (!s && r.dom7Listeners
-              ? (o = r.dom7Listeners[t])
-              : s && r.dom7LiveListeners && (o = r.dom7LiveListeners[t]),
-            o && o.length)
+              ? (a = r.dom7Listeners[t])
+              : s && r.dom7LiveListeners && (a = r.dom7LiveListeners[t]),
+            a && a.length)
           )
-            for (let e = o.length - 1; e >= 0; e -= 1) {
-              const s = o[e];
+            for (let e = a.length - 1; e >= 0; e -= 1) {
+              const s = a[e];
               (i && s.listener === i) ||
               (i &&
                 s.listener &&
                 s.listener.dom7proxy &&
                 s.listener.dom7proxy === i)
-                ? (r.removeEventListener(t, s.proxyListener, n), o.splice(e, 1))
+                ? (r.removeEventListener(t, s.proxyListener, n), a.splice(e, 1))
                 : i ||
                   (r.removeEventListener(t, s.proxyListener, n),
-                  o.splice(e, 1));
+                  a.splice(e, 1));
             }
         }
       }
@@ -447,15 +447,15 @@
     offset: function () {
       if (this.length > 0) {
         const e = d(),
-          t = a(),
+          t = o(),
           s = this[0],
           i = s.getBoundingClientRect(),
           n = t.body,
           r = s.clientTop || n.clientTop || 0,
-          o = s.clientLeft || n.clientLeft || 0,
+          a = s.clientLeft || n.clientLeft || 0,
           l = s === e ? e.scrollY : s.scrollTop,
           c = s === e ? e.scrollX : s.scrollLeft;
-        return { top: i.top + l - r, left: i.left + c - o };
+        return { top: i.top + l - r, left: i.left + c - a };
       }
       return null;
     },
@@ -497,7 +497,7 @@
     },
     is: function (e) {
       const t = d(),
-        s = a(),
+        s = o(),
         i = this[0];
       let n, r;
       if (!i || void 0 === e) return !1;
@@ -538,7 +538,7 @@
     },
     append: function (...e) {
       let t;
-      const s = a();
+      const s = o();
       for (let i = 0; i < e.length; i += 1) {
         t = e[i];
         for (let e = 0; e < this.length; e += 1)
@@ -553,7 +553,7 @@
       return this;
     },
     prepend: function (e) {
-      const t = a();
+      const t = o();
       let s, i;
       for (s = 0; s < this.length; s += 1)
         if ("string" == typeof e) {
@@ -670,7 +670,7 @@
   function S(e, t = "x") {
     const s = d();
     let i, n, r;
-    const o = (function (e) {
+    const a = (function (e) {
       const t = d();
       let s;
       return (
@@ -682,7 +682,7 @@
     })(e);
     return (
       s.WebKitCSSMatrix
-        ? ((n = o.transform || o.webkitTransform),
+        ? ((n = a.transform || a.webkitTransform),
           n.split(",").length > 6 &&
             (n = n
               .split(", ")
@@ -690,12 +690,12 @@
               .join(", ")),
           (r = new s.WebKitCSSMatrix("none" === n ? "" : n)))
         : ((r =
-            o.MozTransform ||
-            o.OTransform ||
-            o.MsTransform ||
-            o.msTransform ||
-            o.transform ||
-            o
+            a.MozTransform ||
+            a.OTransform ||
+            a.MsTransform ||
+            a.msTransform ||
+            a.transform ||
+            a
               .getPropertyValue("transform")
               .replace("translate(", "matrix(1, 0, 0, 1,")),
           (i = r.toString().split(","))),
@@ -760,15 +760,15 @@
     const i = d(),
       n = -e.translate;
     let r,
-      o = null;
-    const a = e.params.speed;
+      a = null;
+    const o = e.params.speed;
     (e.wrapperEl.style.scrollSnapType = "none"),
       i.cancelAnimationFrame(e.cssModeFrameID);
     const l = t > n ? "next" : "prev",
       c = (e, t) => ("next" === l && e >= t) || ("prev" === l && e <= t),
       p = () => {
-        (r = new Date().getTime()), null === o && (o = r);
-        const l = Math.max(Math.min((r - o) / a, 1), 0),
+        (r = new Date().getTime()), null === a && (a = r);
+        const l = Math.max(Math.min((r - a) / o, 1), 0),
           d = 0.5 - Math.cos(l * Math.PI) / 2;
         let u = n + d * (t - n);
         if ((c(u, t) && (u = t), e.wrapperEl.scrollTo({ [s]: u }), c(u, t)))
@@ -785,13 +785,13 @@
       };
     p();
   }
-  let x, L, M;
-  function P() {
+  let x, L, k;
+  function M() {
     return (
       x ||
         (x = (function () {
           const e = d(),
-            t = a();
+            t = o();
           return {
             smoothScroll:
               t.documentElement && "scrollBehavior" in t.documentElement.style,
@@ -817,17 +817,17 @@
       x
     );
   }
-  function k(e = {}) {
+  function P(e = {}) {
     return (
       L ||
         (L = (function ({ userAgent: e } = {}) {
-          const t = P(),
+          const t = M(),
             s = d(),
             i = s.navigator.platform,
             n = e || s.navigator.userAgent,
             r = { ios: !1, android: !1 },
-            o = s.screen.width,
-            a = s.screen.height,
+            a = s.screen.width,
+            o = s.screen.height,
             l = n.match(/(Android);?[\s\/]+([\d.]+)?/);
           let c = n.match(/(iPad).*OS\s([\d_]+)/);
           const p = n.match(/(iPod)(.*OS\s([\d_]+))?/),
@@ -851,7 +851,7 @@
                 "1180x820",
                 "810x1080",
                 "1080x810",
-              ].indexOf(`${o}x${a}`) >= 0 &&
+              ].indexOf(`${a}x${o}`) >= 0 &&
               ((c = n.match(/(Version)\/([\d.]+)/)),
               c || (c = [0, 1, "13_0_0"]),
               (f = !1)),
@@ -863,10 +863,10 @@
       L
     );
   }
-  function A() {
+  function O() {
     return (
-      M ||
-        (M = (function () {
+      k ||
+        (k = (function () {
           const e = d();
           return {
             isSafari: (function () {
@@ -882,10 +882,10 @@
             ),
           };
         })()),
-      M
+      k
     );
   }
-  const O = {
+  const $ = {
     on(e, t, s) {
       const i = this;
       if ("function" != typeof t) return i;
@@ -960,7 +960,7 @@
       );
     },
   };
-  const $ = {
+  const A = {
     updateSize: function () {
       const e = this;
       let t, s;
@@ -1011,7 +1011,7 @@
         return parseFloat(e.getPropertyValue(t(s)) || 0);
       }
       const i = e.params,
-        { $wrapperEl: n, size: r, rtlTranslate: o, wrongRTL: a } = e,
+        { $wrapperEl: n, size: r, rtlTranslate: a, wrongRTL: o } = e,
         l = e.virtual && i.virtual.enabled,
         d = l ? e.virtual.slides.length : e.slides.length,
         c = n.children(`.${e.params.slideClass}`),
@@ -1034,7 +1034,7 @@
         T.indexOf("%") >= 0 &&
         (T = (parseFloat(T.replace("%", "")) / 100) * r),
         (e.virtualSize = -T),
-        o
+        a
           ? c.css({ marginLeft: "", marginBottom: "", marginTop: "" })
           : c.css({ marginRight: "", marginBottom: "", marginTop: "" }),
         i.centeredSlides &&
@@ -1052,36 +1052,36 @@
         ).length > 0;
       for (let n = 0; n < p; n += 1) {
         x = 0;
-        const o = c.eq(n);
+        const a = c.eq(n);
         if (
-          (C && e.grid.updateSlide(n, o, p, t), "none" !== o.css("display"))
+          (C && e.grid.updateSlide(n, a, p, t), "none" !== a.css("display"))
         ) {
           if ("auto" === i.slidesPerView) {
             L && (c[n].style[t("width")] = "");
-            const r = getComputedStyle(o[0]),
-              a = o[0].style.transform,
-              l = o[0].style.webkitTransform;
+            const r = getComputedStyle(a[0]),
+              o = a[0].style.transform,
+              l = a[0].style.webkitTransform;
             if (
-              (a && (o[0].style.transform = "none"),
-              l && (o[0].style.webkitTransform = "none"),
+              (o && (a[0].style.transform = "none"),
+              l && (a[0].style.webkitTransform = "none"),
               i.roundLengths)
             )
-              x = e.isHorizontal() ? o.outerWidth(!0) : o.outerHeight(!0);
+              x = e.isHorizontal() ? a.outerWidth(!0) : a.outerHeight(!0);
             else {
               const e = s(r, "width"),
                 t = s(r, "padding-left"),
                 i = s(r, "padding-right"),
                 n = s(r, "margin-left"),
-                a = s(r, "margin-right"),
+                o = s(r, "margin-right"),
                 l = r.getPropertyValue("box-sizing");
-              if (l && "border-box" === l) x = e + n + a;
+              if (l && "border-box" === l) x = e + n + o;
               else {
-                const { clientWidth: s, offsetWidth: r } = o[0];
-                x = e + t + i + n + a + (r - s);
+                const { clientWidth: s, offsetWidth: r } = a[0];
+                x = e + t + i + n + o + (r - s);
               }
             }
-            a && (o[0].style.transform = a),
-              l && (o[0].style.webkitTransform = l),
+            o && (a[0].style.transform = o),
+              l && (a[0].style.webkitTransform = l),
               i.roundLengths && (x = Math.floor(x));
           } else
             (x = (r - (i.slidesPerView - 1) * T) / i.slidesPerView),
@@ -1110,8 +1110,8 @@
       }
       if (
         ((e.virtualSize = Math.max(e.virtualSize, r) + g),
-        o &&
-          a &&
+        a &&
+          o &&
           ("slide" === i.effect || "coverflow" === i.effect) &&
           n.css({ width: `${e.virtualSize + i.spaceBetween}px` }),
         i.setWrapperSize &&
@@ -1130,7 +1130,7 @@
             u.push(e.virtualSize - r);
       }
       if ((0 === u.length && (u = [0]), 0 !== i.spaceBetween)) {
-        const s = e.isHorizontal() && o ? "marginLeft" : t("marginRight");
+        const s = e.isHorizontal() && a ? "marginLeft" : t("marginRight");
         c.filter((e, t) => !i.cssMode || t !== c.length - 1).css({
           [s]: `${T}px`,
         });
@@ -1198,7 +1198,7 @@
       "number" == typeof e
         ? t.setTransition(e)
         : !0 === e && t.setTransition(t.params.speed);
-      const o = (e) =>
+      const a = (e) =>
         i
           ? t.slides.filter(
               (t) =>
@@ -1214,9 +1214,9 @@
           for (n = 0; n < Math.ceil(t.params.slidesPerView); n += 1) {
             const e = t.activeIndex + n;
             if (e > t.slides.length && !i) break;
-            s.push(o(e));
+            s.push(a(e));
           }
-      else s.push(o(t.activeIndex));
+      else s.push(a(t.activeIndex));
       for (n = 0; n < s.length; n += 1)
         if (void 0 !== s[n]) {
           const e = s[n].offsetHeight;
@@ -1238,31 +1238,31 @@
         { slides: i, rtlTranslate: n, snapGrid: r } = t;
       if (0 === i.length) return;
       void 0 === i[0].swiperSlideOffset && t.updateSlidesOffset();
-      let o = -e;
-      n && (o = e),
+      let a = -e;
+      n && (a = e),
         i.removeClass(s.slideVisibleClass),
         (t.visibleSlidesIndexes = []),
         (t.visibleSlides = []);
       for (let e = 0; e < i.length; e += 1) {
-        const a = i[e];
-        let l = a.swiperSlideOffset;
+        const o = i[e];
+        let l = o.swiperSlideOffset;
         s.cssMode && s.centeredSlides && (l -= i[0].swiperSlideOffset);
         const d =
-            (o + (s.centeredSlides ? t.minTranslate() : 0) - l) /
-            (a.swiperSlideSize + s.spaceBetween),
+            (a + (s.centeredSlides ? t.minTranslate() : 0) - l) /
+            (o.swiperSlideSize + s.spaceBetween),
           c =
-            (o - r[0] + (s.centeredSlides ? t.minTranslate() : 0) - l) /
-            (a.swiperSlideSize + s.spaceBetween),
-          p = -(o - l),
+            (a - r[0] + (s.centeredSlides ? t.minTranslate() : 0) - l) /
+            (o.swiperSlideSize + s.spaceBetween),
+          p = -(a - l),
           u = p + t.slidesSizesGrid[e];
         ((p >= 0 && p < t.size - 1) ||
           (u > 1 && u <= t.size) ||
           (p <= 0 && u >= t.size)) &&
-          (t.visibleSlides.push(a),
+          (t.visibleSlides.push(o),
           t.visibleSlidesIndexes.push(e),
           i.eq(e).addClass(s.slideVisibleClass)),
-          (a.progress = n ? -d : d),
-          (a.originalProgress = n ? -c : c);
+          (o.progress = n ? -d : d),
+          (o.originalProgress = n ? -c : c);
       }
       t.visibleSlides = v(t.visibleSlides);
     },
@@ -1274,18 +1274,18 @@
       }
       const s = t.params,
         i = t.maxTranslate() - t.minTranslate();
-      let { progress: n, isBeginning: r, isEnd: o } = t;
-      const a = r,
-        l = o;
+      let { progress: n, isBeginning: r, isEnd: a } = t;
+      const o = r,
+        l = a;
       0 === i
-        ? ((n = 0), (r = !0), (o = !0))
-        : ((n = (e - t.minTranslate()) / i), (r = n <= 0), (o = n >= 1)),
-        Object.assign(t, { progress: n, isBeginning: r, isEnd: o }),
+        ? ((n = 0), (r = !0), (a = !0))
+        : ((n = (e - t.minTranslate()) / i), (r = n <= 0), (a = n >= 1)),
+        Object.assign(t, { progress: n, isBeginning: r, isEnd: a }),
         (s.watchSlidesProgress || (s.centeredSlides && s.autoHeight)) &&
           t.updateSlidesProgress(e),
-        r && !a && t.emit("reachBeginning toEdge"),
-        o && !l && t.emit("reachEnd toEdge"),
-        ((a && !r) || (l && !o)) && t.emit("fromEdge"),
+        r && !o && t.emit("reachBeginning toEdge"),
+        a && !l && t.emit("reachEnd toEdge"),
+        ((o && !r) || (l && !a)) && t.emit("fromEdge"),
         t.emit("progress", n);
     },
     updateSlidesClasses: function () {
@@ -1297,19 +1297,19 @@
           activeIndex: n,
           realIndex: r,
         } = e,
-        o = e.virtual && s.virtual.enabled;
-      let a;
+        a = e.virtual && s.virtual.enabled;
+      let o;
       t.removeClass(
         `${s.slideActiveClass} ${s.slideNextClass} ${s.slidePrevClass} ${s.slideDuplicateActiveClass} ${s.slideDuplicateNextClass} ${s.slideDuplicatePrevClass}`,
       ),
-        (a = o
+        (o = a
           ? e.$wrapperEl.find(
               `.${s.slideClass}[data-swiper-slide-index="${n}"]`,
             )
           : t.eq(n)),
-        a.addClass(s.slideActiveClass),
+        o.addClass(s.slideActiveClass),
         s.loop &&
-          (a.hasClass(s.slideDuplicateClass)
+          (o.hasClass(s.slideDuplicateClass)
             ? i
                 .children(
                   `.${s.slideClass}:not(.${s.slideDuplicateClass})[data-swiper-slide-index="${r}"]`,
@@ -1320,9 +1320,9 @@
                   `.${s.slideClass}.${s.slideDuplicateClass}[data-swiper-slide-index="${r}"]`,
                 )
                 .addClass(s.slideDuplicateActiveClass));
-      let l = a.nextAll(`.${s.slideClass}`).eq(0).addClass(s.slideNextClass);
+      let l = o.nextAll(`.${s.slideClass}`).eq(0).addClass(s.slideNextClass);
       s.loop && 0 === l.length && ((l = t.eq(0)), l.addClass(s.slideNextClass));
-      let d = a.prevAll(`.${s.slideClass}`).eq(0).addClass(s.slidePrevClass);
+      let d = o.prevAll(`.${s.slideClass}`).eq(0).addClass(s.slidePrevClass);
       s.loop &&
         0 === d.length &&
         ((d = t.eq(-1)), d.addClass(s.slidePrevClass)),
@@ -1374,8 +1374,8 @@
           slidesGrid: i,
           snapGrid: n,
           params: r,
-          activeIndex: o,
-          realIndex: a,
+          activeIndex: a,
+          realIndex: o,
           snapIndex: l,
         } = t;
       let d,
@@ -1394,7 +1394,7 @@
         const e = Math.min(r.slidesPerGroupSkip, c);
         d = e + Math.floor((c - e) / r.slidesPerGroup);
       }
-      if ((d >= n.length && (d = n.length - 1), c === o))
+      if ((d >= n.length && (d = n.length - 1), c === a))
         return void (d !== l && ((t.snapIndex = d), t.emit("snapIndexChange")));
       const p = parseInt(
         t.slides.eq(c).attr("data-swiper-slide-index") || c,
@@ -1403,12 +1403,12 @@
       Object.assign(t, {
         snapIndex: d,
         realIndex: p,
-        previousIndex: o,
+        previousIndex: a,
         activeIndex: c,
       }),
         t.emit("activeIndexChange"),
         t.emit("snapIndexChange"),
-        a !== p && t.emit("realIndexChange"),
+        o !== p && t.emit("realIndexChange"),
         (t.initialized || t.params.runCallbacksOnInit) && t.emit("slideChange");
     },
     updateClickedSlide: function (e) {
@@ -1452,8 +1452,8 @@
           rtlTranslate: i,
           params: n,
           $wrapperEl: r,
-          wrapperEl: o,
-          progress: a,
+          wrapperEl: a,
+          progress: o,
         } = s;
       let l,
         d = 0,
@@ -1461,7 +1461,7 @@
       s.isHorizontal() ? (d = i ? -e : e) : (c = e),
         n.roundLengths && ((d = Math.floor(d)), (c = Math.floor(c))),
         n.cssMode
-          ? (o[s.isHorizontal() ? "scrollLeft" : "scrollTop"] = s.isHorizontal()
+          ? (a[s.isHorizontal() ? "scrollLeft" : "scrollTop"] = s.isHorizontal()
               ? -d
               : -c)
           : n.virtualTranslate ||
@@ -1470,7 +1470,7 @@
         (s.translate = s.isHorizontal() ? d : c);
       const p = s.maxTranslate() - s.minTranslate();
       (l = 0 === p ? 0 : (e - s.minTranslate()) / p),
-        l !== a && s.updateProgress(e),
+        l !== o && s.updateProgress(e),
         s.emit("setTranslate", s.translate, t);
     },
     minTranslate: function () {
@@ -1481,24 +1481,24 @@
     },
     translateTo: function (e = 0, t = this.params.speed, s = !0, i = !0, n) {
       const r = this,
-        { params: o, wrapperEl: a } = r;
-      if (r.animating && o.preventInteractionOnTransition) return !1;
+        { params: a, wrapperEl: o } = r;
+      if (r.animating && a.preventInteractionOnTransition) return !1;
       const l = r.minTranslate(),
         d = r.maxTranslate();
       let c;
       if (
         ((c = i && e > l ? l : i && e < d ? d : e),
         r.updateProgress(c),
-        o.cssMode)
+        a.cssMode)
       ) {
         const e = r.isHorizontal();
-        if (0 === t) a[e ? "scrollLeft" : "scrollTop"] = -c;
+        if (0 === t) o[e ? "scrollLeft" : "scrollTop"] = -c;
         else {
           if (!r.support.smoothScroll)
             return (
               C({ swiper: r, targetPosition: -c, side: e ? "left" : "top" }), !0
             );
-          a.scrollTo({ [e ? "left" : "top"]: -c, behavior: "smooth" });
+          o.scrollTo({ [e ? "left" : "top"]: -c, behavior: "smooth" });
         }
         return !0;
       }
@@ -1546,15 +1546,15 @@
   };
   function z({ swiper: e, runCallbacks: t, direction: s, step: i }) {
     const { activeIndex: n, previousIndex: r } = e;
-    let o = s;
+    let a = s;
     if (
-      (o || (o = n > r ? "next" : n < r ? "prev" : "reset"),
+      (a || (a = n > r ? "next" : n < r ? "prev" : "reset"),
       e.emit(`transition${i}`),
       t && n !== r)
     ) {
-      if ("reset" === o) return void e.emit(`slideResetTransition${i}`);
+      if ("reset" === a) return void e.emit(`slideResetTransition${i}`);
       e.emit(`slideChangeTransition${i}`),
-        "next" === o
+        "next" === a
           ? e.emit(`slideNextTransition${i}`)
           : e.emit(`slidePrevTransition${i}`);
     }
@@ -1574,10 +1574,10 @@
         e = t;
       }
       const r = this;
-      let o = e;
-      o < 0 && (o = 0);
+      let a = e;
+      a < 0 && (a = 0);
       const {
-        params: a,
+        params: o,
         snapGrid: l,
         slidesGrid: d,
         previousIndex: c,
@@ -1586,51 +1586,51 @@
         wrapperEl: h,
         enabled: f,
       } = r;
-      if ((r.animating && a.preventInteractionOnTransition) || (!f && !i && !n))
+      if ((r.animating && o.preventInteractionOnTransition) || (!f && !i && !n))
         return !1;
-      const m = Math.min(r.params.slidesPerGroupSkip, o);
-      let g = m + Math.floor((o - m) / r.params.slidesPerGroup);
+      const m = Math.min(r.params.slidesPerGroupSkip, a);
+      let g = m + Math.floor((a - m) / r.params.slidesPerGroup);
       g >= l.length && (g = l.length - 1),
-        (p || a.initialSlide || 0) === (c || 0) &&
+        (p || o.initialSlide || 0) === (c || 0) &&
           s &&
           r.emit("beforeSlideChangeStart");
       const v = -l[g];
-      if ((r.updateProgress(v), a.normalizeSlideIndex))
+      if ((r.updateProgress(v), o.normalizeSlideIndex))
         for (let e = 0; e < d.length; e += 1) {
           const t = -Math.floor(100 * v),
             s = Math.floor(100 * d[e]),
             i = Math.floor(100 * d[e + 1]);
           void 0 !== d[e + 1]
             ? t >= s && t < i - (i - s) / 2
-              ? (o = e)
-              : t >= s && t < i && (o = e + 1)
-            : t >= s && (o = e);
+              ? (a = e)
+              : t >= s && t < i && (a = e + 1)
+            : t >= s && (a = e);
         }
-      if (r.initialized && o !== p) {
+      if (r.initialized && a !== p) {
         if (!r.allowSlideNext && v < r.translate && v < r.minTranslate())
           return !1;
         if (
           !r.allowSlidePrev &&
           v > r.translate &&
           v > r.maxTranslate() &&
-          (p || 0) !== o
+          (p || 0) !== a
         )
           return !1;
       }
       let w;
       if (
-        ((w = o > p ? "next" : o < p ? "prev" : "reset"),
+        ((w = a > p ? "next" : a < p ? "prev" : "reset"),
         (u && -v === r.translate) || (!u && v === r.translate))
       )
         return (
-          r.updateActiveIndex(o),
-          a.autoHeight && r.updateAutoHeight(),
+          r.updateActiveIndex(a),
+          o.autoHeight && r.updateAutoHeight(),
           r.updateSlidesClasses(),
-          "slide" !== a.effect && r.setTranslate(v),
+          "slide" !== o.effect && r.setTranslate(v),
           "reset" !== w && (r.transitionStart(s, w), r.transitionEnd(s, w)),
           !1
         );
-      if (a.cssMode) {
+      if (o.cssMode) {
         const e = r.isHorizontal(),
           s = u ? v : -v;
         if (0 === t) {
@@ -1657,14 +1657,14 @@
         0 === t
           ? (r.setTransition(0),
             r.setTranslate(v),
-            r.updateActiveIndex(o),
+            r.updateActiveIndex(a),
             r.updateSlidesClasses(),
             r.emit("beforeTransitionStart", t, i),
             r.transitionStart(s, w),
             r.transitionEnd(s, w))
           : (r.setTransition(t),
             r.setTranslate(v),
-            r.updateActiveIndex(o),
+            r.updateActiveIndex(a),
             r.updateSlidesClasses(),
             r.emit("beforeTransitionStart", t, i),
             r.transitionStart(s, w),
@@ -1705,16 +1705,16 @@
     },
     slideNext: function (e = this.params.speed, t = !0, s) {
       const i = this,
-        { animating: n, enabled: r, params: o } = i;
+        { animating: n, enabled: r, params: a } = i;
       if (!r) return i;
-      let a = o.slidesPerGroup;
-      "auto" === o.slidesPerView &&
-        1 === o.slidesPerGroup &&
-        o.slidesPerGroupAuto &&
-        (a = Math.max(i.slidesPerViewDynamic("current", !0), 1));
-      const l = i.activeIndex < o.slidesPerGroupSkip ? 1 : a;
-      if (o.loop) {
-        if (n && o.loopPreventsSlide) return !1;
+      let o = a.slidesPerGroup;
+      "auto" === a.slidesPerView &&
+        1 === a.slidesPerGroup &&
+        a.slidesPerGroupAuto &&
+        (o = Math.max(i.slidesPerViewDynamic("current", !0), 1));
+      const l = i.activeIndex < a.slidesPerGroupSkip ? 1 : o;
+      if (a.loop) {
+        if (n && a.loopPreventsSlide) return !1;
         i.loopFix(), (i._clientLeft = i.$wrapperEl[0].clientLeft);
       }
       return i.slideTo(i.activeIndex + l, e, t, s);
@@ -1724,8 +1724,8 @@
         {
           params: n,
           animating: r,
-          snapGrid: o,
-          slidesGrid: a,
+          snapGrid: a,
+          slidesGrid: o,
           rtlTranslate: l,
           enabled: d,
         } = i;
@@ -1738,19 +1738,19 @@
         return e < 0 ? -Math.floor(Math.abs(e)) : Math.floor(e);
       }
       const p = c(l ? i.translate : -i.translate),
-        u = o.map((e) => c(e));
-      let h = o[u.indexOf(p) - 1];
+        u = a.map((e) => c(e));
+      let h = a[u.indexOf(p) - 1];
       if (void 0 === h && n.cssMode) {
         let e;
-        o.forEach((t, s) => {
+        a.forEach((t, s) => {
           p >= t && (e = s);
         }),
-          void 0 !== e && (h = o[e > 0 ? e - 1 : e]);
+          void 0 !== e && (h = a[e > 0 ? e - 1 : e]);
       }
       let f = 0;
       return (
         void 0 !== h &&
-          ((f = a.indexOf(h)),
+          ((f = o.indexOf(h)),
           f < 0 && (f = i.activeIndex - 1),
           "auto" === n.slidesPerView &&
             1 === n.slidesPerGroup &&
@@ -1766,15 +1766,15 @@
     slideToClosest: function (e = this.params.speed, t = !0, s, i = 0.5) {
       const n = this;
       let r = n.activeIndex;
-      const o = Math.min(n.params.slidesPerGroupSkip, r),
-        a = o + Math.floor((r - o) / n.params.slidesPerGroup),
+      const a = Math.min(n.params.slidesPerGroupSkip, r),
+        o = a + Math.floor((r - a) / n.params.slidesPerGroup),
         l = n.rtlTranslate ? n.translate : -n.translate;
-      if (l >= n.snapGrid[a]) {
-        const e = n.snapGrid[a];
-        l - e > (n.snapGrid[a + 1] - e) * i && (r += n.params.slidesPerGroup);
+      if (l >= n.snapGrid[o]) {
+        const e = n.snapGrid[o];
+        l - e > (n.snapGrid[o + 1] - e) * i && (r += n.params.slidesPerGroup);
       } else {
-        const e = n.snapGrid[a - 1];
-        l - e <= (n.snapGrid[a] - e) * i && (r -= n.params.slidesPerGroup);
+        const e = n.snapGrid[o - 1];
+        l - e <= (n.snapGrid[o] - e) * i && (r -= n.params.slidesPerGroup);
       }
       return (
         (r = Math.max(r, 0)),
@@ -1826,7 +1826,7 @@
   const D = {
     loopCreate: function () {
       const e = this,
-        t = a(),
+        t = o(),
         { params: s, $wrapperEl: i } = e,
         n = i.children().length > 0 ? v(i.children()[0].parentNode) : i;
       n.children(`.${s.slideClass}.${s.slideDuplicateClass}`).remove();
@@ -1851,18 +1851,18 @@
         )),
         (e.loopedSlides += s.loopAdditionalSlides),
         e.loopedSlides > r.length && (e.loopedSlides = r.length);
-      const o = [],
+      const a = [],
         l = [];
       r.each((t, s) => {
         const i = v(t);
         s < e.loopedSlides && l.push(t),
-          s < r.length && s >= r.length - e.loopedSlides && o.push(t),
+          s < r.length && s >= r.length - e.loopedSlides && a.push(t),
           i.attr("data-swiper-slide-index", s);
       });
       for (let e = 0; e < l.length; e += 1)
         n.append(v(l[e].cloneNode(!0)).addClass(s.slideDuplicateClass));
-      for (let e = o.length - 1; e >= 0; e -= 1)
-        n.prepend(v(o[e].cloneNode(!0)).addClass(s.slideDuplicateClass));
+      for (let e = a.length - 1; e >= 0; e -= 1)
+        n.prepend(v(a[e].cloneNode(!0)).addClass(s.slideDuplicateClass));
     },
     loopFix: function () {
       const e = this;
@@ -1873,22 +1873,22 @@
         loopedSlides: i,
         allowSlidePrev: n,
         allowSlideNext: r,
-        snapGrid: o,
-        rtlTranslate: a,
+        snapGrid: a,
+        rtlTranslate: o,
       } = e;
       let l;
       (e.allowSlidePrev = !0), (e.allowSlideNext = !0);
-      const d = -o[t] - e.getTranslate();
+      const d = -a[t] - e.getTranslate();
       if (t < i) {
         (l = s.length - 3 * i + t), (l += i);
         e.slideTo(l, 0, !1, !0) &&
           0 !== d &&
-          e.setTranslate((a ? -e.translate : e.translate) - d);
+          e.setTranslate((o ? -e.translate : e.translate) - d);
       } else if (t >= s.length - i) {
         (l = -s.length + t + i), (l += i);
         e.slideTo(l, 0, !1, !0) &&
           0 !== d &&
-          e.setTranslate((a ? -e.translate : e.translate) - d);
+          e.setTranslate((o ? -e.translate : e.translate) - d);
       }
       (e.allowSlidePrev = n), (e.allowSlideNext = r), e.emit("loopFix");
     },
@@ -1904,10 +1904,10 @@
   };
   function G(e) {
     const t = this,
-      s = a(),
+      s = o(),
       i = d(),
       n = t.touchEventsData,
-      { params: r, touches: o, enabled: l } = t;
+      { params: r, touches: a, enabled: l } = t;
     if (!l) return;
     if (t.animating && r.preventInteractionOnTransition) return;
     !t.animating && r.cssMode && r.loop && t.loopFix();
@@ -1939,7 +1939,7 @@
       (h
         ? (function (e, t = this) {
             return (function t(s) {
-              return s && s !== a() && s !== d()
+              return s && s !== o() && s !== d()
                 ? (s.assignedSlot && (s = s.assignedSlot),
                   s.closest(e) || t(s.getRootNode().host))
                 : null;
@@ -1949,11 +1949,11 @@
     )
       return void (t.allowClick = !0);
     if (r.swipeHandler && !p.closest(r.swipeHandler)[0]) return;
-    (o.currentX = "touchstart" === c.type ? c.targetTouches[0].pageX : c.pageX),
-      (o.currentY =
+    (a.currentX = "touchstart" === c.type ? c.targetTouches[0].pageX : c.pageX),
+      (a.currentY =
         "touchstart" === c.type ? c.targetTouches[0].pageY : c.pageY);
-    const f = o.currentX,
-      m = o.currentY,
+    const f = a.currentX,
+      m = a.currentY,
       g = r.edgeSwipeDetection || r.iOSEdgeSwipeDetection,
       w = r.edgeSwipeThreshold || r.iOSEdgeSwipeThreshold;
     if (g && (f <= w || f >= i.innerWidth - w)) {
@@ -1968,8 +1968,8 @@
         isScrolling: void 0,
         startMoving: void 0,
       }),
-      (o.startX = f),
-      (o.startY = m),
+      (a.startX = f),
+      (a.startY = m),
       (n.touchStartTime = T()),
       (t.allowClick = !0),
       t.updateSize(),
@@ -1991,10 +1991,10 @@
     t.emit("touchStart", c);
   }
   function N(e) {
-    const t = a(),
+    const t = o(),
       s = this,
       i = s.touchEventsData,
-      { params: n, touches: r, rtlTranslate: o, enabled: l } = s;
+      { params: n, touches: r, rtlTranslate: a, enabled: l } = s;
     if (!l) return;
     let d = e;
     if ((d.originalEvent && (d = d.originalEvent), !i.isTouched))
@@ -2088,7 +2088,7 @@
     let m = s.isHorizontal() ? h : f;
     (r.diff = m),
       (m *= n.touchRatio),
-      o && (m = -m),
+      a && (m = -m),
       (s.swipeDirection = m > 0 ? "prev" : "next"),
       (i.currentTranslate = m + i.startTranslate);
     let g = !0,
@@ -2152,8 +2152,8 @@
   function B(e) {
     const t = this,
       s = t.touchEventsData,
-      { params: i, touches: n, rtlTranslate: r, slidesGrid: o, enabled: a } = t;
-    if (!a) return;
+      { params: i, touches: n, rtlTranslate: r, slidesGrid: a, enabled: o } = t;
+    if (!o) return;
     let l = e;
     if (
       (l.originalEvent && (l = l.originalEvent),
@@ -2212,15 +2212,15 @@
       h = t.slidesSizesGrid[0];
     for (
       let e = 0;
-      e < o.length;
+      e < a.length;
       e += e < i.slidesPerGroupSkip ? 1 : i.slidesPerGroup
     ) {
       const t = e < i.slidesPerGroupSkip - 1 ? 1 : i.slidesPerGroup;
-      void 0 !== o[e + t]
-        ? p >= o[e] && p < o[e + t] && ((u = e), (h = o[e + t] - o[e]))
-        : p >= o[e] && ((u = e), (h = o[o.length - 1] - o[o.length - 2]));
+      void 0 !== a[e + t]
+        ? p >= a[e] && p < a[e + t] && ((u = e), (h = a[e + t] - a[e]))
+        : p >= a[e] && ((u = e), (h = a[a.length - 1] - a[a.length - 2]));
     }
-    const f = (p - o[u]) / h,
+    const f = (p - a[u]) / h,
       m = u < i.slidesPerGroupSkip - 1 ? 1 : i.slidesPerGroup;
     if (c > i.longSwipesMs) {
       if (!i.longSwipes) return void t.slideTo(t.activeIndex);
@@ -2239,7 +2239,7 @@
           "prev" === t.swipeDirection && t.slideTo(u));
     }
   }
-  function W() {
+  function j() {
     const e = this,
       { params: t, el: s } = e;
     if (s && 0 === s.offsetWidth) return;
@@ -2270,7 +2270,7 @@
           t.animating &&
           (e.stopPropagation(), e.stopImmediatePropagation())));
   }
-  function V() {
+  function W() {
     const e = this,
       { wrapperEl: t, rtlTranslate: s, enabled: i } = e;
     if (!i) return;
@@ -2287,15 +2287,15 @@
       n !== e.progress && e.updateProgress(s ? -e.translate : e.translate),
       e.emit("setTranslate", e.translate, !1);
   }
-  let j = !1;
+  let V = !1;
   function F() {}
   const R = (e, t) => {
-    const s = a(),
+    const s = o(),
       {
         params: i,
         touchEvents: n,
         el: r,
-        wrapperEl: o,
+        wrapperEl: a,
         device: l,
         support: d,
       } = e,
@@ -2322,28 +2322,28 @@
         s[p](n.end, e.onTouchEnd, !1);
     (i.preventClicks || i.preventClicksPropagation) &&
       r[p]("click", e.onClick, !0),
-      i.cssMode && o[p]("scroll", e.onScroll),
+      i.cssMode && a[p]("scroll", e.onScroll),
       i.updateOnWindowResize
         ? e[u](
             l.ios || l.android
               ? "resize orientationchange observerUpdate"
               : "resize observerUpdate",
-            W,
+            j,
             !0,
           )
-        : e[u]("observerUpdate", W, !0);
+        : e[u]("observerUpdate", j, !0);
   };
   const q = {
       attachEvents: function () {
         const e = this,
-          t = a(),
+          t = o(),
           { params: s, support: i } = e;
         (e.onTouchStart = G.bind(e)),
           (e.onTouchMove = N.bind(e)),
           (e.onTouchEnd = B.bind(e)),
-          s.cssMode && (e.onScroll = V.bind(e)),
+          s.cssMode && (e.onScroll = W.bind(e)),
           (e.onClick = H.bind(e)),
-          i.touch && !j && (t.addEventListener("touchstart", F), (j = !0)),
+          i.touch && !V && (t.addEventListener("touchstart", F), (V = !0)),
           R(e, "on");
       },
       detachEvents: function () {
@@ -2361,11 +2361,11 @@
           params: n,
           $el: r,
         } = e,
-        o = n.breakpoints;
-      if (!o || (o && 0 === Object.keys(o).length)) return;
-      const a = e.getBreakpoint(o, e.params.breakpointsBase, e.el);
-      if (!a || e.currentBreakpoint === a) return;
-      const l = (a in o ? o[a] : void 0) || e.originalParams,
+        a = n.breakpoints;
+      if (!a || (a && 0 === Object.keys(a).length)) return;
+      const o = e.getBreakpoint(a, e.params.breakpointsBase, e.el);
+      if (!o || e.currentBreakpoint === o) return;
+      const l = (o in a ? a[o] : void 0) || e.originalParams,
         d = Y(e, n),
         c = Y(e, l),
         p = n.enabled;
@@ -2391,7 +2391,7 @@
         allowSlidePrev: e.params.allowSlidePrev,
       }),
         p && !f ? e.disable() : !p && f && e.enable(),
-        (e.currentBreakpoint = a),
+        (e.currentBreakpoint = o),
         e.emit("_beforeBreakpoint", l),
         h &&
           s &&
@@ -2406,19 +2406,19 @@
       let i = !1;
       const n = d(),
         r = "window" === t ? n.innerHeight : s.clientHeight,
-        o = Object.keys(e).map((e) => {
+        a = Object.keys(e).map((e) => {
           if ("string" == typeof e && 0 === e.indexOf("@")) {
             const t = parseFloat(e.substr(1));
             return { value: r * t, point: e };
           }
           return { value: e, point: e };
         });
-      o.sort((e, t) => parseInt(e.value, 10) - parseInt(t.value, 10));
-      for (let e = 0; e < o.length; e += 1) {
-        const { point: r, value: a } = o[e];
+      a.sort((e, t) => parseInt(e.value, 10) - parseInt(t.value, 10));
+      for (let e = 0; e < a.length; e += 1) {
+        const { point: r, value: o } = a[e];
         "window" === t
-          ? n.matchMedia(`(min-width: ${a}px)`).matches && (i = r)
-          : a <= s.clientWidth && (i = r);
+          ? n.matchMedia(`(min-width: ${o}px)`).matches && (i = r)
+          : o <= s.clientWidth && (i = r);
       }
       return i || "max";
     },
@@ -2426,8 +2426,8 @@
   const U = {
     addClasses: function () {
       const e = this,
-        { classNames: t, params: s, rtl: i, $el: n, device: r, support: o } = e,
-        a = (function (e, t) {
+        { classNames: t, params: s, rtl: i, $el: n, device: r, support: a } = e,
+        o = (function (e, t) {
           const s = [];
           return (
             e.forEach((e) => {
@@ -2443,7 +2443,7 @@
           [
             "initialized",
             s.direction,
-            { "pointer-events": !o.touch },
+            { "pointer-events": !a.touch },
             { "free-mode": e.params.freeMode && s.freeMode.enabled },
             { autoheight: s.autoHeight },
             { rtl: i },
@@ -2459,7 +2459,7 @@
           ],
           s.containerModifierClass,
         );
-      t.push(...a), n.addClass([...t].join(" ")), e.emitContainerClasses();
+      t.push(...o), n.addClass([...t].join(" ")), e.emitContainerClasses();
     },
     removeClasses: function () {
       const { $el: e, classNames: t } = this;
@@ -2576,8 +2576,8 @@
     };
   }
   const Q = {
-      eventsEmitter: O,
-      update: $,
+      eventsEmitter: $,
+      update: A,
       translate: I,
       transition: {
         setTransition: function (e, t) {
@@ -2651,20 +2651,20 @@
       classes: U,
       images: {
         loadImage: function (e, t, s, i, n, r) {
-          const o = d();
-          let a;
+          const a = d();
+          let o;
           function l() {
             r && r();
           }
           v(e).parent("picture")[0] || (e.complete && n)
             ? l()
             : t
-            ? ((a = new o.Image()),
-              (a.onload = l),
-              (a.onerror = l),
-              i && (a.sizes = i),
-              s && (a.srcset = s),
-              t && (a.src = t))
+            ? ((o = new a.Image()),
+              (o.onload = l),
+              (o.onerror = l),
+              i && (o.sizes = i),
+              s && (o.srcset = s),
+              t && (o.src = t))
             : l();
         },
         preloadImages: function () {
@@ -2719,9 +2719,9 @@
       }
       const i = this;
       (i.__swiper__ = !0),
-        (i.support = P()),
-        (i.device = k({ userAgent: s.userAgent })),
-        (i.browser = A()),
+        (i.support = M()),
+        (i.device = P({ userAgent: s.userAgent })),
+        (i.browser = O()),
         (i.eventsListeners = {}),
         (i.eventsAnyListeners = []),
         (i.modules = [...i.__modules__]),
@@ -2876,28 +2876,28 @@
         slides: i,
         slidesGrid: n,
         slidesSizesGrid: r,
-        size: o,
-        activeIndex: a,
+        size: a,
+        activeIndex: o,
       } = this;
       let l = 1;
       if (s.centeredSlides) {
         let e,
-          t = i[a].swiperSlideSize;
-        for (let s = a + 1; s < i.length; s += 1)
+          t = i[o].swiperSlideSize;
+        for (let s = o + 1; s < i.length; s += 1)
           i[s] &&
             !e &&
-            ((t += i[s].swiperSlideSize), (l += 1), t > o && (e = !0));
-        for (let s = a - 1; s >= 0; s -= 1)
+            ((t += i[s].swiperSlideSize), (l += 1), t > a && (e = !0));
+        for (let s = o - 1; s >= 0; s -= 1)
           i[s] &&
             !e &&
-            ((t += i[s].swiperSlideSize), (l += 1), t > o && (e = !0));
+            ((t += i[s].swiperSlideSize), (l += 1), t > a && (e = !0));
       } else if ("current" === e)
-        for (let e = a + 1; e < i.length; e += 1) {
-          (t ? n[e] + r[e] - n[a] < o : n[e] - n[a] < o) && (l += 1);
+        for (let e = o + 1; e < i.length; e += 1) {
+          (t ? n[e] + r[e] - n[o] < a : n[e] - n[o] < a) && (l += 1);
         }
       else
-        for (let e = a - 1; e >= 0; e -= 1) {
-          n[a] - n[e] < o && (l += 1);
+        for (let e = o - 1; e >= 0; e -= 1) {
+          n[o] - n[e] < a && (l += 1);
         }
       return l;
     }
@@ -2965,7 +2965,7 @@
         return s.children(i());
       })();
       if (0 === n.length && t.params.createElements) {
-        const e = a().createElement("div");
+        const e = o().createElement("div");
         (n = v(e)),
           (e.className = t.params.wrapperClass),
           s.append(e),
@@ -3027,7 +3027,7 @@
     }
     destroy(e = !0, t = !0) {
       const s = this,
-        { params: i, $el: n, $wrapperEl: r, slides: o } = s;
+        { params: i, $el: n, $wrapperEl: r, slides: a } = s;
       return (
         void 0 === s.params ||
           s.destroyed ||
@@ -3039,9 +3039,9 @@
             (s.removeClasses(),
             n.removeAttr("style"),
             r.removeAttr("style"),
-            o &&
-              o.length &&
-              o
+            a &&
+              a.length &&
+              a
                 .removeClass(
                   [
                     i.slideVisibleClass,
@@ -3108,7 +3108,7 @@
               e.initialized &&
               (s("beforeResize"), s("resize"));
           },
-          o = () => {
+          a = () => {
             e && !e.destroyed && e.initialized && s("orientationchange");
           };
         t("init", () => {
@@ -3119,30 +3119,30 @@
               ((n = new ResizeObserver((t) => {
                 const { width: s, height: i } = e;
                 let n = s,
-                  o = i;
+                  a = i;
                 t.forEach(
                   ({ contentBoxSize: t, contentRect: s, target: i }) => {
                     (i && i !== e.el) ||
                       ((n = s ? s.width : (t[0] || t).inlineSize),
-                      (o = s ? s.height : (t[0] || t).blockSize));
+                      (a = s ? s.height : (t[0] || t).blockSize));
                   },
                 ),
-                  (n === s && o === i) || r();
+                  (n === s && a === i) || r();
               })),
               n.observe(e.el))
             : (i.addEventListener("resize", r),
-              i.addEventListener("orientationchange", o));
+              i.addEventListener("orientationchange", a));
         }),
           t("destroy", () => {
             n && n.unobserve && e.el && (n.unobserve(e.el), (n = null)),
               i.removeEventListener("resize", r),
-              i.removeEventListener("orientationchange", o);
+              i.removeEventListener("orientationchange", a);
           });
       },
       function ({ swiper: e, extendParams: t, on: s, emit: i }) {
         const n = [],
           r = d(),
-          o = (e, t = {}) => {
+          a = (e, t = {}) => {
             const s = new (r.MutationObserver || r.WebkitMutationObserver)(
               (e) => {
                 if (1 === e.length) return void i("observerUpdate", e[0]);
@@ -3166,10 +3166,10 @@
             if (e.params.observer) {
               if (e.params.observeParents) {
                 const t = e.$el.parents();
-                for (let e = 0; e < t.length; e += 1) o(t[e]);
+                for (let e = 0; e < t.length; e += 1) a(t[e]);
               }
-              o(e.$el[0], { childList: e.params.observeSlideChildren }),
-                o(e.$wrapperEl[0], { attributes: !1 });
+              a(e.$el[0], { childList: e.params.observeSlideChildren }),
+                a(e.$wrapperEl[0], { attributes: !1 });
             }
           }),
           s("destroy", () => {
@@ -3181,7 +3181,281 @@
       },
     ]);
   const te = ee;
-  function se() {
+  function se({ swiper: e, extendParams: t, on: s, emit: i }) {
+    function n(t) {
+      let s;
+      return (
+        t &&
+          ((s = v(t)),
+          e.params.uniqueNavElements &&
+            "string" == typeof t &&
+            s.length > 1 &&
+            1 === e.$el.find(t).length &&
+            (s = e.$el.find(t))),
+        s
+      );
+    }
+    function r(t, s) {
+      const i = e.params.navigation;
+      t &&
+        t.length > 0 &&
+        (t[s ? "addClass" : "removeClass"](i.disabledClass),
+        t[0] && "BUTTON" === t[0].tagName && (t[0].disabled = s),
+        e.params.watchOverflow &&
+          e.enabled &&
+          t[e.isLocked ? "addClass" : "removeClass"](i.lockClass));
+    }
+    function a() {
+      if (e.params.loop) return;
+      const { $nextEl: t, $prevEl: s } = e.navigation;
+      r(s, e.isBeginning), r(t, e.isEnd);
+    }
+    function l(t) {
+      t.preventDefault(), (e.isBeginning && !e.params.loop) || e.slidePrev();
+    }
+    function d(t) {
+      t.preventDefault(), (e.isEnd && !e.params.loop) || e.slideNext();
+    }
+    function c() {
+      const t = e.params.navigation;
+      if (
+        ((e.params.navigation = (function (e, t, s, i) {
+          const n = o();
+          return (
+            e.params.createElements &&
+              Object.keys(i).forEach((r) => {
+                if (!s[r] && !0 === s.auto) {
+                  let a = e.$el.children(`.${i[r]}`)[0];
+                  a ||
+                    ((a = n.createElement("div")),
+                    (a.className = i[r]),
+                    e.$el.append(a)),
+                    (s[r] = a),
+                    (t[r] = a);
+                }
+              }),
+            s
+          );
+        })(e, e.originalParams.navigation, e.params.navigation, {
+          nextEl: "swiper-button-next",
+          prevEl: "swiper-button-prev",
+        })),
+        !t.nextEl && !t.prevEl)
+      )
+        return;
+      const s = n(t.nextEl),
+        i = n(t.prevEl);
+      s && s.length > 0 && s.on("click", d),
+        i && i.length > 0 && i.on("click", l),
+        Object.assign(e.navigation, {
+          $nextEl: s,
+          nextEl: s && s[0],
+          $prevEl: i,
+          prevEl: i && i[0],
+        }),
+        e.enabled ||
+          (s && s.addClass(t.lockClass), i && i.addClass(t.lockClass));
+    }
+    function p() {
+      const { $nextEl: t, $prevEl: s } = e.navigation;
+      t &&
+        t.length &&
+        (t.off("click", d), t.removeClass(e.params.navigation.disabledClass)),
+        s &&
+          s.length &&
+          (s.off("click", l), s.removeClass(e.params.navigation.disabledClass));
+    }
+    t({
+      navigation: {
+        nextEl: null,
+        prevEl: null,
+        hideOnClick: !1,
+        disabledClass: "swiper-button-disabled",
+        hiddenClass: "swiper-button-hidden",
+        lockClass: "swiper-button-lock",
+      },
+    }),
+      (e.navigation = {
+        nextEl: null,
+        $nextEl: null,
+        prevEl: null,
+        $prevEl: null,
+      }),
+      s("init", () => {
+        c(), a();
+      }),
+      s("toEdge fromEdge lock unlock", () => {
+        a();
+      }),
+      s("destroy", () => {
+        p();
+      }),
+      s("enable disable", () => {
+        const { $nextEl: t, $prevEl: s } = e.navigation;
+        t &&
+          t[e.enabled ? "removeClass" : "addClass"](
+            e.params.navigation.lockClass,
+          ),
+          s &&
+            s[e.enabled ? "removeClass" : "addClass"](
+              e.params.navigation.lockClass,
+            );
+      }),
+      s("click", (t, s) => {
+        const { $nextEl: n, $prevEl: r } = e.navigation,
+          a = s.target;
+        if (e.params.navigation.hideOnClick && !v(a).is(r) && !v(a).is(n)) {
+          if (
+            e.pagination &&
+            e.params.pagination &&
+            e.params.pagination.clickable &&
+            (e.pagination.el === a || e.pagination.el.contains(a))
+          )
+            return;
+          let t;
+          n
+            ? (t = n.hasClass(e.params.navigation.hiddenClass))
+            : r && (t = r.hasClass(e.params.navigation.hiddenClass)),
+            i(!0 === t ? "navigationShow" : "navigationHide"),
+            n && n.toggleClass(e.params.navigation.hiddenClass),
+            r && r.toggleClass(e.params.navigation.hiddenClass);
+        }
+      }),
+      Object.assign(e.navigation, { update: a, init: c, destroy: p });
+  }
+  function ie({ swiper: e, extendParams: t, on: s, emit: i }) {
+    let n;
+    function r() {
+      const t = e.slides.eq(e.activeIndex);
+      let s = e.params.autoplay.delay;
+      t.attr("data-swiper-autoplay") &&
+        (s = t.attr("data-swiper-autoplay") || e.params.autoplay.delay),
+        clearTimeout(n),
+        (n = w(() => {
+          let t;
+          e.params.autoplay.reverseDirection
+            ? e.params.loop
+              ? (e.loopFix(),
+                (t = e.slidePrev(e.params.speed, !0, !0)),
+                i("autoplay"))
+              : e.isBeginning
+              ? e.params.autoplay.stopOnLastSlide
+                ? l()
+                : ((t = e.slideTo(e.slides.length - 1, e.params.speed, !0, !0)),
+                  i("autoplay"))
+              : ((t = e.slidePrev(e.params.speed, !0, !0)), i("autoplay"))
+            : e.params.loop
+            ? (e.loopFix(),
+              (t = e.slideNext(e.params.speed, !0, !0)),
+              i("autoplay"))
+            : e.isEnd
+            ? e.params.autoplay.stopOnLastSlide
+              ? l()
+              : ((t = e.slideTo(0, e.params.speed, !0, !0)), i("autoplay"))
+            : ((t = e.slideNext(e.params.speed, !0, !0)), i("autoplay")),
+            ((e.params.cssMode && e.autoplay.running) || !1 === t) && r();
+        }, s));
+    }
+    function a() {
+      return (
+        void 0 === n &&
+        !e.autoplay.running &&
+        ((e.autoplay.running = !0), i("autoplayStart"), r(), !0)
+      );
+    }
+    function l() {
+      return (
+        !!e.autoplay.running &&
+        void 0 !== n &&
+        (n && (clearTimeout(n), (n = void 0)),
+        (e.autoplay.running = !1),
+        i("autoplayStop"),
+        !0)
+      );
+    }
+    function d(t) {
+      e.autoplay.running &&
+        (e.autoplay.paused ||
+          (n && clearTimeout(n),
+          (e.autoplay.paused = !0),
+          0 !== t && e.params.autoplay.waitForTransition
+            ? ["transitionend", "webkitTransitionEnd"].forEach((t) => {
+                e.$wrapperEl[0].addEventListener(t, p);
+              })
+            : ((e.autoplay.paused = !1), r())));
+    }
+    function c() {
+      const t = o();
+      "hidden" === t.visibilityState && e.autoplay.running && d(),
+        "visible" === t.visibilityState &&
+          e.autoplay.paused &&
+          (r(), (e.autoplay.paused = !1));
+    }
+    function p(t) {
+      e &&
+        !e.destroyed &&
+        e.$wrapperEl &&
+        t.target === e.$wrapperEl[0] &&
+        (["transitionend", "webkitTransitionEnd"].forEach((t) => {
+          e.$wrapperEl[0].removeEventListener(t, p);
+        }),
+        (e.autoplay.paused = !1),
+        e.autoplay.running ? r() : l());
+    }
+    function u() {
+      e.params.autoplay.disableOnInteraction ? l() : d(),
+        ["transitionend", "webkitTransitionEnd"].forEach((t) => {
+          e.$wrapperEl[0].removeEventListener(t, p);
+        });
+    }
+    function h() {
+      e.params.autoplay.disableOnInteraction || ((e.autoplay.paused = !1), r());
+    }
+    (e.autoplay = { running: !1, paused: !1 }),
+      t({
+        autoplay: {
+          enabled: !1,
+          delay: 3e3,
+          waitForTransition: !0,
+          disableOnInteraction: !0,
+          stopOnLastSlide: !1,
+          reverseDirection: !1,
+          pauseOnMouseEnter: !1,
+        },
+      }),
+      s("init", () => {
+        if (e.params.autoplay.enabled) {
+          a();
+          o().addEventListener("visibilitychange", c),
+            e.params.autoplay.pauseOnMouseEnter &&
+              (e.$el.on("mouseenter", u), e.$el.on("mouseleave", h));
+        }
+      }),
+      s("beforeTransitionStart", (t, s, i) => {
+        e.autoplay.running &&
+          (i || !e.params.autoplay.disableOnInteraction
+            ? e.autoplay.pause(s)
+            : l());
+      }),
+      s("sliderFirstMove", () => {
+        e.autoplay.running &&
+          (e.params.autoplay.disableOnInteraction ? l() : d());
+      }),
+      s("touchEnd", () => {
+        e.params.cssMode &&
+          e.autoplay.paused &&
+          !e.params.autoplay.disableOnInteraction &&
+          r();
+      }),
+      s("destroy", () => {
+        e.$el.off("mouseenter", u),
+          e.$el.off("mouseleave", h),
+          e.autoplay.running && l();
+        o().removeEventListener("visibilitychange", c);
+      }),
+      Object.assign(e.autoplay, { pause: d, run: r, start: a, stop: l });
+  }
+  function ne() {
     let e = document.querySelectorAll(
       '[class*="__swiper"]:not(.swiper-wrapper)',
     );
@@ -3193,25 +3467,27 @@
       });
   }
   window.addEventListener("load", function (e) {
-    se(),
-      document.querySelector(".swiper") &&
-        new te(".swiper", {
+    ne(),
+      document.querySelector(".basics__slider") &&
+        new te(".basics__slider", {
+          modules: [se, ie],
+          autoplay: { delay: 3e3, disableOnInteraction: !0 },
           observer: !0,
           observeParents: !0,
           slidesPerView: 1,
-          spaceBetween: 0,
+          spaceBetween: 32,
           autoHeight: !0,
           speed: 800,
           navigation: {
-            nextEl: ".about__more .more__item_next",
-            prevEl: ".about__more .more__item_prev",
+            nextEl: ".basics__swiper-button-next",
+            prevEl: ".basics__swiper-button-prev",
           },
           on: {},
         });
   });
-  let ie = !1;
+  let re = !1;
   setTimeout(() => {
-    if (ie) {
+    if (re) {
       let e = new Event("windowScroll");
       window.addEventListener("scroll", function (t) {
         document.dispatchEvent(e);
@@ -3245,21 +3521,21 @@
         });
     })(),
     (function () {
-      ie = !0;
+      re = !0;
       const e = document.querySelector("header.header"),
         t = e.hasAttribute("data-scroll-show"),
         s = e.dataset.scrollShow ? e.dataset.scrollShow : 500,
         i = e.dataset.scroll ? e.dataset.scroll : 1;
       let n,
         r = 0;
-      document.addEventListener("windowScroll", function (o) {
-        const a = window.scrollY;
+      document.addEventListener("windowScroll", function (a) {
+        const o = window.scrollY;
         clearTimeout(n),
-          a >= i
+          o >= i
             ? (!e.classList.contains("_header-scroll") &&
                 e.classList.add("_header-scroll"),
               t &&
-                (a > r
+                (o > r
                   ? e.classList.contains("_header-show") &&
                     e.classList.remove("_header-show")
                   : !e.classList.contains("_header-show") &&
@@ -3273,7 +3549,7 @@
               t &&
                 e.classList.contains("_header-show") &&
                 e.classList.remove("_header-show")),
-          (r = a <= 0 ? 0 : a);
+          (r = o <= 0 ? 0 : o);
       });
     })();
 })();
