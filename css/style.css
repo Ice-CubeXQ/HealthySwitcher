@@ -244,6 +244,7 @@ body {
   text-align: center;
   position: relative;
   z-index: 5;
+  text-transform: capitalize;
 }
 @media (min-width: 71.25em) {
   [class*=__title-subtext] p {
@@ -262,7 +263,6 @@ body {
 }
 [class*=__title-subtext]::before {
   position: absolute;
-  content: "ABOUT";
   display: block;
   z-index: 4;
   top: 50%;
@@ -286,6 +286,34 @@ body {
 @media (max-width: 20em) {
   [class*=__title-subtext]::before {
     font-size: 2.1875rem;
+  }
+}
+
+[class*=__title-subtext--decore] {
+  display: grid;
+}
+[class*=__title-subtext--decore]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  width: 3.75rem;
+  height: 2px;
+  background-color: #34c759;
+}
+@media (min-width: 71.25em) {
+  [class*=__title-subtext--decore]::after {
+    top: 6.4375rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  [class*=__title-subtext--decore]::after {
+    top: clamp( 3.75rem , 2.7012195122rem  +  5.243902439vw , 6.4375rem );
+  }
+}
+@media (max-width: 20em) {
+  [class*=__title-subtext--decore]::after {
+    top: 3.75rem;
   }
 }
 
@@ -721,6 +749,9 @@ body {
     row-gap: 1.25rem;
   }
 }
+.basics__title-subtext::before {
+  content: "ABOUT";
+}
 .basics__text {
   text-align: center;
 }
@@ -782,6 +813,143 @@ body {
 .slider-basics__slide-image img {
   transition: all 0.3s ease 0s;
   width: 100%;
+}
+
+@media (min-width: 71.25em) {
+  .work {
+    padding-top: 5.625rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .work {
+    padding-top: clamp( 2.5rem , 1.2804878049rem  +  6.0975609756vw , 5.625rem );
+  }
+}
+@media (max-width: 20em) {
+  .work {
+    padding-top: 2.5rem;
+  }
+}
+@media (min-width: 71.25em) {
+  .work {
+    padding-bottom: 5.625rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .work {
+    padding-bottom: clamp( 2.5rem , 1.2804878049rem  +  6.0975609756vw , 5.625rem );
+  }
+}
+@media (max-width: 20em) {
+  .work {
+    padding-bottom: 2.5rem;
+  }
+}
+.work__container {
+  display: grid;
+}
+@media (min-width: 71.25em) {
+  .work__container {
+    row-gap: 7.5rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .work__container {
+    row-gap: clamp( 2.5rem , 0.5487804878rem  +  9.756097561vw , 7.5rem );
+  }
+}
+@media (max-width: 20em) {
+  .work__container {
+    row-gap: 2.5rem;
+  }
+}
+.work__title-subtext::before {
+  content: "WORK";
+}
+.work__items {
+  display: grid;
+  gap: 1.875rem;
+}
+@media (min-width: 29.99875em) {
+  .work__items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 29.99875em) and (max-width: 61.99875em) {
+  .work__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.item-work {
+  background-color: #252525;
+  border-radius: 0.375rem;
+  padding: 1.5rem;
+  padding-bottom: 2.625rem;
+  transition: all 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .item-work:hover {
+    background-color: #34c759;
+    color: #191919;
+  }
+  .item-work:hover .item-work__title {
+    color: inherit;
+  }
+  .item-work:hover .item-work__title::before {
+    background-color: #191919;
+  }
+}
+.item-work__title {
+  color: #fff;
+  letter-spacing: -0.0125em;
+  text-transform: capitalize;
+  position: relative;
+}
+@media (min-width: 71.25em) {
+  .item-work__title {
+    font-size: 1.375rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .item-work__title {
+    font-size: clamp( 1.125rem , 1.0274390244rem  +  0.487804878vw , 1.375rem );
+  }
+}
+@media (max-width: 20em) {
+  .item-work__title {
+    font-size: 1.125rem;
+  }
+}
+.item-work__title:not(:last-child) {
+  margin-bottom: 2.875rem;
+}
+.item-work__title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 3.5rem;
+  height: 0.125rem;
+  background-color: #34c759;
+}
+@media (min-width: 71.25em) {
+  .item-work__title::before {
+    top: 2.625rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .item-work__title::before {
+    top: clamp( 2rem , 1.756097561rem  +  1.2195121951vw , 2.625rem );
+  }
+}
+@media (max-width: 20em) {
+  .item-work__title::before {
+    top: 2rem;
+  }
+}
+.item-work__text {
+  font-size: 0.8125rem;
+  line-height: 138.5%;
+  letter-spacing: -0.0124615385em;
 }
 .swiper {
   overflow: hidden;
