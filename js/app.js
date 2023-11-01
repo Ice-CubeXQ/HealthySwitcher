@@ -3468,8 +3468,8 @@
   }
   window.addEventListener("load", function (e) {
     ne(),
-      document.querySelector(".basics__slider") &&
-        new te(".basics__slider", {
+      document.querySelector(".slider-basics__slider") &&
+        new te(".slider-basics__slider", {
           modules: [se, ie],
           autoplay: { delay: 3e3, disableOnInteraction: !0 },
           observer: !0,
@@ -3478,6 +3478,7 @@
           spaceBetween: 32,
           autoHeight: !0,
           speed: 800,
+          loop: !0,
           navigation: {
             nextEl: ".basics__swiper-button-next",
             prevEl: ".basics__swiper-button-prev",
