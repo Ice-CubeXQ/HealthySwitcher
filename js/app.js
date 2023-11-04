@@ -1544,7 +1544,7 @@
       );
     },
   };
-  function z({ swiper: e, runCallbacks: t, direction: s, step: i }) {
+  function _({ swiper: e, runCallbacks: t, direction: s, step: i }) {
     const { activeIndex: n, previousIndex: r } = e;
     let a = s;
     if (
@@ -1559,7 +1559,7 @@
           : e.emit(`slidePrevTransition${i}`);
     }
   }
-  const _ = {
+  const z = {
     slideTo: function (e = 0, t = this.params.speed, s = !0, i, n) {
       if ("number" != typeof e && "string" != typeof e)
         throw new Error(
@@ -2289,7 +2289,7 @@
   }
   let V = !1;
   function F() {}
-  const R = (e, t) => {
+  const q = (e, t) => {
     const s = o(),
       {
         params: i,
@@ -2333,7 +2333,7 @@
           )
         : e[u]("observerUpdate", j, !0);
   };
-  const q = {
+  const R = {
       attachEvents: function () {
         const e = this,
           t = o(),
@@ -2344,10 +2344,10 @@
           s.cssMode && (e.onScroll = W.bind(e)),
           (e.onClick = H.bind(e)),
           i.touch && !V && (t.addEventListener("touchstart", F), (V = !0)),
-          R(e, "on");
+          q(e, "on");
       },
       detachEvents: function () {
-        R(this, "off");
+        q(this, "off");
       },
     },
     Y = (e, t) => e.grid && t.grid && t.grid.rows > 1;
@@ -2590,7 +2590,7 @@
             { params: i } = s;
           i.cssMode ||
             (i.autoHeight && s.updateAutoHeight(),
-            z({ swiper: s, runCallbacks: e, direction: t, step: "Start" }));
+            _({ swiper: s, runCallbacks: e, direction: t, step: "Start" }));
         },
         transitionEnd: function (e = !0, t) {
           const s = this,
@@ -2598,10 +2598,10 @@
           (s.animating = !1),
             i.cssMode ||
               (s.setTransition(0),
-              z({ swiper: s, runCallbacks: e, direction: t, step: "End" }));
+              _({ swiper: s, runCallbacks: e, direction: t, step: "End" }));
         },
       },
-      slide: _,
+      slide: z,
       loop: D,
       grabCursor: {
         setGrabCursor: function (e) {
@@ -2630,7 +2630,7 @@
             ].style.cursor = "");
         },
       },
-      events: q,
+      events: R,
       breakpoints: X,
       checkOverflow: {
         checkOverflow: function () {
@@ -3520,6 +3520,55 @@
             })(),
             document.documentElement.classList.toggle("menu-open"));
         });
+    })(),
+    (function () {
+      const e = document.querySelectorAll(".rating");
+      e.length > 0 &&
+        (function () {
+          let t, s;
+          for (let t = 0; t < e.length; t++) {
+            i(e[t]);
+          }
+          function i(e) {
+            n(e), r(), e.classList.contains("rating_set") && a(e);
+          }
+          function n(e) {
+            (t = e.querySelector(".rating__active")),
+              (s = e.querySelector(".rating__value"));
+          }
+          function r(e = s.innerHTML) {
+            const i = e / 0.05;
+            t.style.width = `${i}%`;
+          }
+          function a(e) {
+            const t = e.querySelectorAll(".rating__item");
+            for (let i = 0; i < t.length; i++) {
+              const a = t[i];
+              a.addEventListener("mouseenter", function (t) {
+                n(e), r(a.value);
+              }),
+                a.addEventListener("mouseleave", function (e) {
+                  r();
+                }),
+                a.addEventListener("click", function (t) {
+                  n(e),
+                    e.dataset.ajax
+                      ? o(a.value, e)
+                      : ((s.innerHTML = i + 1), r());
+                });
+            }
+          }
+          async function o(e, t) {
+            if (!t.classList.contains("rating_sending")) {
+              t.classList.add("rating_sending");
+              let e = await fetch("rating.json", { method: "GET" });
+              if (e.ok) {
+                const i = (await e.json()).newRating;
+                (s.innerHTML = i), r(), t.classList.remove("rating_sending");
+              } else alert("Ошибка"), t.classList.remove("rating_sending");
+            }
+          }
+        })();
     })(),
     (function () {
       re = !0;
