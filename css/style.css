@@ -1338,6 +1338,307 @@ body {
   width: 100%;
   height: 100%;
 }
+
+@media (min-width: 71.25em) {
+  .recipes {
+    padding-bottom: 6.5625rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .recipes {
+    padding-bottom: clamp( 2.5rem , 0.9146341463rem  +  7.9268292683vw , 6.5625rem );
+  }
+}
+@media (max-width: 20em) {
+  .recipes {
+    padding-bottom: 2.5rem;
+  }
+}
+.recipes__title-subtext::before {
+  content: "RECIPES";
+}
+@media (min-width: 71.25em) {
+  .recipes__title-subtext:not(:last-child) {
+    margin-bottom: 6.5625rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .recipes__title-subtext:not(:last-child) {
+    margin-bottom: clamp( 2.5rem , 0.9146341463rem  +  7.9268292683vw , 6.5625rem );
+  }
+}
+@media (max-width: 20em) {
+  .recipes__title-subtext:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+}
+.recipes__table {
+  display: grid;
+  gap: 1.875rem;
+}
+@media (min-width: 47.99875em) {
+  .recipes__table {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.main-table-item {
+  color: #fff;
+  background: url("../img/recipes/bg-main.jpg") 0 0/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.375rem;
+}
+.main-table-item__link {
+  position: absolute;
+  top: 8.4%;
+  right: 8%;
+  display: block;
+}
+@media (any-hover: hover) {
+  .main-table-item__link:hover img {
+    width: 120%;
+    height: 120%;
+  }
+}
+.main-table-item__link img {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 13.6px;
+  border-radius: 50%;
+  transition: all 0.3s ease 0s;
+}
+.main-table-item__body {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  align-content: center;
+  height: 100%;
+}
+@media (min-width: 71.25em) {
+  .main-table-item__body {
+    padding-left: 3.75rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .main-table-item__body {
+    padding-left: clamp( 0.9375rem , -0.1600609756rem  +  5.487804878vw , 3.75rem );
+  }
+}
+@media (max-width: 20em) {
+  .main-table-item__body {
+    padding-left: 0.9375rem;
+  }
+}
+@media (min-width: 71.25em) {
+  .main-table-item__body {
+    padding-right: 3.75rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .main-table-item__body {
+    padding-right: clamp( 0.9375rem , -0.1600609756rem  +  5.487804878vw , 3.75rem );
+  }
+}
+@media (max-width: 20em) {
+  .main-table-item__body {
+    padding-right: 0.9375rem;
+  }
+}
+@media (min-width: 71.25em) {
+  .main-table-item__body {
+    gap: 4.0625rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .main-table-item__body {
+    gap: clamp( 2.5rem , 1.8902439024rem  +  3.0487804878vw , 4.0625rem );
+  }
+}
+@media (max-width: 20em) {
+  .main-table-item__body {
+    gap: 2.5rem;
+  }
+}
+@media (max-width: 47.99875em) {
+  .main-table-item__body {
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem;
+  }
+}
+.main-table-item__title {
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1041666667em;
+  text-transform: uppercase;
+  padding: 0px 1rem;
+  line-height: 250%;
+  border-radius: 0.375rem;
+}
+.main-table-item__date {
+  line-height: 214%;
+}
+.main-table-item__date:not(:last-child) {
+  margin-bottom: 1.5625rem;
+}
+.main-table-item__text {
+  line-height: 166.6%;
+}
+@media (min-width: 71.25em) {
+  .main-table-item__text {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .main-table-item__text {
+    font-size: clamp( 1.25rem , 1.1524390244rem  +  0.487804878vw , 1.5rem );
+  }
+}
+@media (max-width: 20em) {
+  .main-table-item__text {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 71.25em) {
+  .main-table-item__text:not(:last-child) {
+    margin-bottom: 2.8125rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .main-table-item__text:not(:last-child) {
+    margin-bottom: clamp( 1.875rem , 1.5091463415rem  +  1.8292682927vw , 2.8125rem );
+  }
+}
+@media (max-width: 20em) {
+  .main-table-item__text:not(:last-child) {
+    margin-bottom: 1.875rem;
+  }
+}
+.main-table-item__chef-name {
+  line-height: 214%;
+}
+.info-block {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.info-block__item {
+  display: flex;
+  column-gap: 0.875rem;
+  font-weight: 700;
+}
+
+.table-items {
+  display: grid;
+  gap: 1.875rem;
+}
+.item-table {
+  color: #fff;
+  overflow: hidden;
+  border-radius: 6px;
+  display: grid;
+  row-gap: 0.625rem;
+}
+@media (min-width: 71.25em) {
+  .item-table {
+    padding: 1.875rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 71.25em) {
+  .item-table {
+    padding: clamp( 1.25rem , 1.006097561rem  +  1.2195121951vw , 1.875rem );
+  }
+}
+@media (max-width: 20em) {
+  .item-table {
+    padding: 1.25rem;
+  }
+}
+.item-table__text {
+  align-self: end;
+  line-height: 187.5%;
+  transition: color 0.3s ease 0s;
+}
+@media (max-width: 29.99875em) {
+  .item-table__text {
+    text-align: center;
+  }
+}
+@media (any-hover: hover) {
+  .item-table__text:hover {
+    color: #b3b3b3;
+  }
+}
+.item-table__info-body {
+  display: flex;
+  gap: 0.9375rem;
+}
+@media (max-width: 29.99875em) {
+  .item-table__info-body {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (min-width: 29.99875em) {
+  .item-table__info-body {
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+.item-table__item {
+  display: flex;
+  column-gap: 0.9375rem;
+  align-items: center;
+}
+.item-table__name {
+  font-size: 0.625rem;
+  font-weight: 900;
+  line-height: 250%;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  padding: 0px 6px;
+}
+.item-table__date {
+  font-size: 0.75rem;
+}
+.item-table__info {
+  font-size: 0.75rem;
+}
+.item-table--first {
+  background-color: #252525;
+}
+.item-table--first .item-table__date {
+  color: #b3b3b3;
+}
+.item-table--first .item-table__info {
+  color: #d8d8d8;
+}
+.item-table--second {
+  background: url("../img/recipes/bg-item.jpg") 0 0/cover no-repeat;
+}
+.item-table--third {
+  background-color: #34c759;
+  color: #252525;
+}
+.item-table--third .item-table__name {
+  color: #fff;
+  background-color: #000;
+}
+.item-table--third .item-table__date {
+  color: #1a1a1a;
+}
+.item-table--third .item-table__info {
+  color: #1a1a1a;
+}
+@media (any-hover: hover) {
+  .item-table--third .item-table__text:hover {
+    color: #000;
+  }
+}
 .swiper {
   overflow: hidden;
 }
