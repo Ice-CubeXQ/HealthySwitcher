@@ -1677,7 +1677,6 @@ body {
 }
 .social__items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   row-gap: 1.5625rem;
 }
 @media (min-width: 71.25em) {
@@ -1695,11 +1694,16 @@ body {
     column-gap: 0.9375rem;
   }
 }
+@media (min-width: 47.99875em) {
+  .social__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 .item-social {
-  max-height: 20.625rem;
   background-color: #252525;
   border-radius: 6px;
   overflow: hidden;
+  display: grid;
 }
 .item-social__header {
   display: flex;
@@ -1707,19 +1711,24 @@ body {
   gap: 1.25rem;
   border-bottom: 2px solid #303030;
 }
-@media (min-width: 71.25em) {
+@media (min-width: 69.375em) {
   .item-social__header {
     padding: 1.5625rem;
   }
 }
-@media (min-width: 20em) and (max-width: 71.25em) {
+@media (min-width: 61.25em) and (max-width: 69.375em) {
   .item-social__header {
-    padding: clamp( 0.9375rem , 0.693597561rem  +  1.2195121951vw , 1.5625rem );
+    padding: clamp( 0.9375rem , -3.7740384615rem  +  7.6923076923vw , 1.5625rem );
   }
 }
-@media (max-width: 20em) {
+@media (max-width: 61.25em) {
   .item-social__header {
     padding: 0.9375rem;
+  }
+}
+@media (max-width: 62.8125em) {
+  .item-social__header {
+    flex-direction: column;
   }
 }
 .item-social__icon {
@@ -1729,15 +1738,36 @@ body {
   border: 2px solid #303030;
 }
 .item-social__name {
-  flex-grow: 1;
+  transition: color 0.3s ease 0s;
+  cursor: pointer;
+}
+@media (min-width: 62.8125em) {
+  .item-social__name {
+    flex-grow: 1;
+  }
+}
+@media (any-hover: hover) {
+  .item-social__name:hover {
+    color: #34c759;
+  }
 }
 .item-social__button {
   font-size: 0.625rem;
   padding: 0px 19px;
 }
+@media (max-width: 62.8125em) {
+  .item-social__button {
+    display: none;
+  }
+}
 .item-social__content {
   line-height: 214.3%;
-  padding: 20px 15px 0px 30px;
+  padding: 20px 15px 20px 30px;
+}
+@media (min-width: 47.99875em) and (max-width: 69.375em) {
+  .item-social__content {
+    padding-left: clamp( 0.9375rem , -1.1675852289rem  +  4.3857084381vw , 1.875rem );
+  }
 }
 .item-social__date {
   color: #737373;
@@ -1769,6 +1799,26 @@ body {
 }
 .content-social-table__picture-ibg {
   padding-bottom: 100%;
+  position: relative;
+}
+@media (any-hover: hover) {
+  .content-social-table__picture-ibg:hover::before {
+    opacity: 1;
+  }
+}
+.content-social-table__picture-ibg::before {
+  display: block;
+  position: absolute;
+  content: "";
+  background: url("../img/icons/button-arrow.svg") 0 0 no-repeat;
+  width: 40px;
+  height: 40px;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease 0s;
 }
 .swiper {
   overflow: hidden;
